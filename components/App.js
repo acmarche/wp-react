@@ -31,7 +31,6 @@ function App() {
             <Category
                 catId={mainCategory}
                 siteSlug={siteSlug}
-                selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
                 selectedCategoryTitle={setSelectedCategoryTitle} />
             <Post catId={selectedCategory} siteSlug={siteSlug}/>

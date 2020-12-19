@@ -1,14 +1,12 @@
 const { useState } = wp.element;
 
 function CategoryItem( propos ) {
-    const [ item, setItem ] = useState( propos.item );
-    const [ active, setActive ] = useState( false );
+    const { item } = propos;
 
     function handleClick( categoryId, categoryTitle ) {
-        propos.removeClass( categoryId );
+        propos.setItemActive( categoryId );
         propos.setSelectedCategory( categoryId );
         propos.selectedCategoryTitle( categoryTitle );
-        //   setActive( true );
     }
 
     return (
@@ -17,7 +15,7 @@ function CategoryItem( propos ) {
         >
             <a
                 data-category-id={item.id}
-                onClick={( ( event ) => handleClick( item.id, item.name ) )}
+                onClick={( ( ) => handleClick( item.id, item.name ) )}
                 href="#"
             >
                 {item.name} {item.id}

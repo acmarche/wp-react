@@ -8,7 +8,6 @@ const {
 
 function Category( propos ) {
     const [ categories, setCategories ] = useState([]);
-    const [ selectedCategory, setSelectedCategory ] = useState( propos.selectedCategory );
     const [ loading, setLoading ] = useState( false );
 
     async function loadCategories() {
@@ -30,7 +29,7 @@ function Category( propos ) {
         }
     }, [ propos.catId ]);
 
-    function removeClass( idCat ) {
+    function setItemActive( idCat ) {
         categories.map( ( object ) => {
             if ( object.id === idCat ) {
                 return Object.assign( object, { active: true });
@@ -43,9 +42,7 @@ function Category( propos ) {
         <CategoryItem
             item={object}
             key={object.id}
-            oldSelected={propos.catId}
-            selectedCategory={selectedCategory}
-            removeClass={removeClass}
+            setItemActive={setItemActive}
             setSelectedCategory={propos.setSelectedCategory}
             selectedCategoryTitle={propos.selectedCategoryTitle}
         />
