@@ -1,5 +1,5 @@
-import Exemple from './Exemple';
 import Category from './Category';
+import Post from './Post';
 
 const { useState, useEffect } = wp.element;
 
@@ -19,13 +19,7 @@ function App() {
     return (
         <>
             <Category catId={mainCategory} siteSlug={siteSlug}/>
-            <Exemple charle={'jenny'}/>
-            <div className={'alert alert-info'}>
-                <p>coucou {siteSlug}</p>
-            </div>
-            <button className={'btn btn-primary'} type={'button'} name={'bouton'}
-                onClick={() => setSiteSlug( 'loulou' )}>Change
-            </button>
+            <Post catId={mainCategory} siteSlug={siteSlug}/>
         </>
     );
 }
