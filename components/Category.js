@@ -25,8 +25,9 @@ function Category( propos ) {
         }
     }, [ propos.catId ]);
 
-    function handleClick( categoryId ) {
+    function handleClick( categoryId, categoryTitle ) {
         propos.setSelectedCategory( categoryId );
+        propos.selectedCategoryTitle( categoryTitle );
     }
 
     return (
@@ -39,7 +40,7 @@ function Category( propos ) {
                     >
                         <a
                             data-category-id={object.id}
-                            onClick={( ( event ) => handleClick( object.id ) )}
+                            onClick={( ( event ) => handleClick( object.id, object.name ) )}
                             href="#"
                         >
                             {object.name} | {object.id}

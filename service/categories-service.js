@@ -1,4 +1,4 @@
-import axios from '../components/Axios';
+import axios from './Axios';
 
 /**
  * @param {string|null} siteSlug
