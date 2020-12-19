@@ -1,9 +1,14 @@
 import { fetchCategories } from '../service/categories-service';
+import CategoryItem from './CategoryItem';
 
-const { useState, useEffect } = wp.element;
+const {
+    useState,
+    useEffect
+} = wp.element;
 
 function Category( propos ) {
     const [ categories, setCategories ] = useState([]);
+    const [ selectedCategory, setSelectedCategory ] = useState( propos.selectedCategory );
     const [ loading, setLoading ] = useState( false );
 
     async function loadCategories() {
@@ -25,28 +30,31 @@ function Category( propos ) {
         }
     }, [ propos.catId ]);
 
-    function handleClick( categoryId, categoryTitle ) {
-        propos.setSelectedCategory( categoryId );
-        propos.selectedCategoryTitle( categoryTitle );
+    function removeClass( idCat ) {
+        categories.map( ( object ) => {
+            if ( object.id === idCat ) {
+                return Object.assign( object, { active: true });
+            }
+            return Object.assign( object, { active: false });
+        });
     }
+
+    const listItems = categories.map( ( object, index ) => (
+        <CategoryItem
+            item={object}
+            key={object.id}
+            oldSelected={propos.catId}
+            selectedCategory={selectedCategory}
+            removeClass={removeClass}
+            setSelectedCategory={propos.setSelectedCategory}
+            selectedCategoryTitle={propos.selectedCategoryTitle}
+        />
+    ) );
 
     return (
         <div className="overflow-hidden w-100 pt-48px col-6 px-0">
             <ul className="object-tags">
-                {categories.map( ( object, index ) => (
-                    <li
-                        key={index}
-                        className={`${object.active ? 'active' : ''} pr-24px`}
-                    >
-                        <a
-                            data-category-id={object.id}
-                            onClick={( ( event ) => handleClick( object.id, object.name ) )}
-                            href="#"
-                        >
-                            {object.name} | {object.id}
-                        </a>
-                    </li>
-                ) )}
+                {listItems}
             </ul>
         </div>
     );
