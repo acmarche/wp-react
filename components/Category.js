@@ -6,9 +6,9 @@ function Category( propos ) {
     const [ categories, setCategories ] = useState([]);
     const [ loading, setLoading ] = useState( false );
 
+    console.log( `main ${propos.catId}` );
     async function loadCategories() {
         setLoading( true );
-        console.log( propos.catId );
         let response;
         try {
             response = await fetchCategories( propos.siteSlug, propos.catId );

@@ -8,7 +8,7 @@ function App() {
     const [ mainCategory, setMainCategory ] = useState( 0 );
 
     function loadConfig() {
-        setMainCategory( document.getElementById( 'appjf' ).getAttribute( 'data-catid' ) );
+        setMainCategory( document.getElementById( 'appjf' ).getAttribute( 'data-categoryid' ) );
         setSiteSlug( document.getElementById( 'appjf' ).getAttribute( 'data-siteslug' ) );
     }
 
