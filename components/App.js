@@ -1,25 +1,27 @@
 import Category from './Category';
 import Post from './Post';
 
-const { useState, useEffect } = wp.element;
+const {
+    useState,
+    useEffect
+} = wp.element;
 
 function App() {
-    const [ siteSlug, setSiteSlug ] = useState( '' );
-    const [ mainCategory, setMainCategory ] = useState( 0 );
-
-    function loadConfig() {
-        setMainCategory( document.getElementById( 'appjf' ).getAttribute( 'data-categoryid' ) );
-        setSiteSlug( document.getElementById( 'appjf' ).getAttribute( 'data-siteslug' ) );
-    }
+    const [ selectedCategory, setSelectedCategory ] = useState( 0 );
+    const mainCategory = document.getElementById( 'appjf' )
+        .getAttribute( 'data-categoryid' );
+    const siteSlug = document.getElementById( 'appjf' )
+        .getAttribute( 'data-siteslug' );
 
     useEffect( () => {
-        loadConfig();
-    });
+        setSelectedCategory( mainCategory );
+    }, []);
 
     return (
         <>
-            <Category catId={mainCategory} siteSlug={siteSlug}/>
-            <Post catId={mainCategory} siteSlug={siteSlug}/>
+            <Category catId={mainCategory} siteSlug={siteSlug}
+                setSelectedCategory={setSelectedCategory}/>
+            <Post catId={selectedCategory} siteSlug={siteSlug}/>
         </>
     );
 }

@@ -6,7 +6,6 @@ function Category( propos ) {
     const [ categories, setCategories ] = useState([]);
     const [ loading, setLoading ] = useState( false );
 
-    console.log( `main ${propos.catId}` );
     async function loadCategories() {
         setLoading( true );
         let response;
@@ -26,6 +25,10 @@ function Category( propos ) {
         }
     }, [ propos.catId ]);
 
+    function handleClick( categoryId ) {
+        propos.setSelectedCategory( categoryId );
+    }
+
     return (
         <div className="overflow-hidden w-100 pt-48px col-6 px-0">
             <ul className="object-tags">
@@ -36,9 +39,7 @@ function Category( propos ) {
                     >
                         <a
                             data-category-id={object.id}
-                            onClick={( e ) => {
-                                console.log( `jf click${e}` );
-                            }}
+                            onClick={( ( event ) => handleClick( object.id ) )}
                             href="#"
                         >
                             {object.name} | {object.id}

@@ -11,7 +11,6 @@ function Post( propos ) {
 
     async function loadPosts() {
         setLoading( true );
-        console.log( propos.catId );
         let response;
         try {
             response = await fetchPosts( propos.siteSlug, propos.catId );
