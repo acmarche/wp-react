@@ -7,7 +7,7 @@ const {
     useEffect
 } = wp.element;
 
-function App() {
+function Category() {
     const [ selectedCategory, setSelectedCategory ] = useState( 0 );
     const [ selectedCategoryTitle, setSelectedCategoryTitle ] = useState( '' );
 
@@ -38,4 +38,4 @@ function App() {
     );
 }
 
-export default App;
+export default Category;
