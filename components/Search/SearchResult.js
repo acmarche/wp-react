@@ -1,8 +1,18 @@
+import SearchItem from './SearchItem';
+
 function SearchResult( propos ) {
-    console.log( propos.results );
+    const listItems = propos.results.map( ( object, index ) => <SearchItem
+        item={object}
+        key={index}
+    /> );
+
     return (
         <>
-            Res
+            <div className="pt-24px">
+                <ul className="d-flex mx-n12px flex-wrap">
+                    {listItems}
+                </ul>
+            </div>
         </>
     );
 }
