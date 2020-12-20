@@ -31,8 +31,8 @@ function Post( propos ) {
 
     const listItems = posts.map( ( object, index ) => (
         <PostItem
+            key={object.ID}
             item={object}
-            key={object.id}
         />
     ) );
 
