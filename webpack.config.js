@@ -10,6 +10,9 @@ module.exports = {
         ],
         search: [
             `${path.resolve( __dirname, 'src' )}/search.js`
+        ],
+        agenda: [
+            `${path.resolve( __dirname, 'src' )}/agenda.js`
         ]
     },
     externals: {
