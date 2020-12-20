@@ -1,4 +1,5 @@
 import { fetchPosts } from './service/posts-service';
+import PostItem from './PostItem';
 
 const {
     useState,
@@ -28,30 +29,17 @@ function Post( propos ) {
         }
     }, [ propos.catId ]);
 
+    const listItems = posts.map( ( object, index ) => (
+        <PostItem
+            item={object}
+            key={object.id}
+        />
+    ) );
+
     return (
         <div className="pt-24px">
             <ul className="d-flex mx-n12px flex-wrap">
-                {posts.map( ( object, index ) => (
-                    <li key={index} className="pb-12px px-12px col-12 col-md-6">
-                        <a
-                            href={object.link}
-                            className="border border-default p-24px shadow-sm d-block"
-                        >
-                            <h3
-                                className="fs-short-2 ff-semibold text-dark-primary text-hover-primary transition-all ellipsis"
-                                dangerouslySetInnerHTML={{
-                                    __html: object.post_title
-                                }}
-                            />
-                            <span
-                                className="d-block pt-8px fs-short-3 ellipsis text-dark-primary"
-                                dangerouslySetInnerHTML={{
-                                    __html: object.excerpt
-                                }}
-                            />
-                        </a>
-                    </li>
-                ) )}
+                {listItems}
             </ul>
         </div>
     );
