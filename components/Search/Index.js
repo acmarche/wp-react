@@ -9,9 +9,22 @@ const {
 } = wp.element;
 
 function Search( ) {
-    const [ keyword, setKeyword ] = useState( '' );
+    const [ keyword, setKeyword ] = useState( );
     const [ count, setCount ] = useState( 0 );
     const [ results, setResults ] = useState([]);
+
+    function getKeywordInUrl() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams( queryString );
+        const param = urlParams.get( 's' );
+        if ( 2 < param.length ) {
+            setKeyword( param );
+        }
+    }
+
+    useEffect( () => {
+        getKeywordInUrl();
+    }, [ ]);
 
     async function executeSearch() {
         let response;
@@ -27,7 +40,7 @@ function Search( ) {
     }
 
     useEffect( () => {
-        if ( 2 < keyword.length ) {
+        if ( undefined !== keyword && 2 < keyword.length ) {
             console.log( `execute search ${keyword}` );
             executeSearch( keyword );
         }
