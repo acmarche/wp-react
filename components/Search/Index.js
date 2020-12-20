@@ -24,7 +24,7 @@ function Search( ) {
 
     useEffect( () => {
         getKeywordInUrl();
-    }, [ ]);
+    }, []);
 
     async function executeSearch() {
         let response;

@@ -6,7 +6,7 @@ const {
     useEffect
 } = wp.element;
 
-function Post( propos ) {
+function PostResults( propos ) {
     const [ posts, setPosts ] = useState([]);
     const [ loading, setLoading ] = useState( false );
 
@@ -45,4 +45,4 @@ function Post( propos ) {
     );
 }
 
-export default Post;
+export default PostResults;

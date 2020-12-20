@@ -1,5 +1,5 @@
 import CategoryChildren from './CategoryChildren';
-import Post from './Post';
+import PostResults from './PostResults';
 import CategoryTitle from './CategoryTitle';
 
 const {
@@ -34,7 +34,7 @@ function Category() {
                 siteSlug={siteSlug}
                 setSelectedCategory={setSelectedCategory}
                 selectedCategoryTitle={setSelectedCategoryTitle} />
-            <Post catId={selectedCategory} siteSlug={siteSlug}/>
+            <PostResults catId={selectedCategory} siteSlug={siteSlug}/>
         </>
     );
 }
