@@ -1,5 +1,3 @@
-const { useState } = wp.element;
-
 function CategoryItem( propos ) {
     const { item } = propos;
 
@@ -7,6 +5,7 @@ function CategoryItem( propos ) {
         propos.setItemActive( categoryId );
         propos.setSelectedCategory( categoryId );
         propos.setSelectedCategoryTitle( categoryTitle );
+        document.title = categoryTitle;
     }
 
     return (
