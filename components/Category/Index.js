@@ -10,14 +10,15 @@ const {
 function Category() {
     const [ selectedCategory, setSelectedCategory ] = useState( 0 );
     const [ selectedCategoryTitle, setSelectedCategoryTitle ] = useState( '' );
+    const name = 'app-category';
 
-    const mainCategory = document.getElementById( 'appjf' )
+    const mainCategory = document.getElementById( name )
         .getAttribute( 'data-categoryid' );
-    const siteSlug = document.getElementById( 'appjf' )
+    const siteSlug = document.getElementById( name )
         .getAttribute( 'data-siteslug' );
-    const color = document.getElementById( 'appjf' )
+    const color = document.getElementById( name )
         .getAttribute( 'data-color' );
-    const categoryTitle = document.getElementById( 'appjf' )
+    const categoryTitle = document.getElementById( name )
         .getAttribute( 'data-categoryTitle' );
 
     useEffect( () => {
