@@ -33,7 +33,7 @@ function Category() {
                 catId={mainCategory}
                 siteSlug={siteSlug}
                 setSelectedCategory={setSelectedCategory}
-                selectedCategoryTitle={setSelectedCategoryTitle} />
+                setSelectedCategoryTitle={setSelectedCategoryTitle} />
             <PostResults catId={selectedCategory} siteSlug={siteSlug}/>
         </>
     );

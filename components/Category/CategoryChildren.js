@@ -44,7 +44,7 @@ function CategoryChildren( propos ) {
             key={object.id}
             setItemActive={setItemActive}
             setSelectedCategory={propos.setSelectedCategory}
-            selectedCategoryTitle={propos.selectedCategoryTitle}
+            setSelectedCategoryTitle={propos.setSelectedCategoryTitle}
         />
     ) );
 

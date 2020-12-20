@@ -6,7 +6,7 @@ function CategoryItem( propos ) {
     function handleClick( categoryId, categoryTitle ) {
         propos.setItemActive( categoryId );
         propos.setSelectedCategory( categoryId );
-        propos.selectedCategoryTitle( categoryTitle );
+        propos.setSelectedCategoryTitle( categoryTitle );
     }
 
     return (
