@@ -1,3 +1,3 @@
-import App from '../components/App';
+import Category from '../components/Category/Index';
 
-ReactDOM.render( <App />, document.getElementById( 'appjf' ) );
+ReactDOM.render( <Category />, document.getElementById( 'appjf' ) );
