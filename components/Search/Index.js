@@ -7,14 +7,18 @@ const {
     useEffect
 } = wp.element;
 
-function Search() {
+function Search( propos ) {
+    const [ keyword, setKeyword ] = useState( '' );
+
+    function runSearch() {
+        console.log( 'run search' );
+    }
+
     return (
         <>
-            <SearchForm keyword={'zeze'}/>
+            <SearchForm keyword={keyword} runSearch={runSearch()}/>
             <SearchTitle count={0} keyword={'zeze'}/>
             <SearchResult/>
         </>
     );
 }
-
-export default Search;
